@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Work+Sans:wght@400;500;600&display=swap");
+
+.loading-page {
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spinner {
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid #8a93b3;
+  border-left: transparent;
+  animation: loading 1s infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-page {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.error-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid #c9a24b;
+  position: relative;
+}
+
+.error-mark::before,
+.error-mark::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 1.5px;
+  background: #c9a24b;
+}
+
+.error-mark::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.error-mark::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.error-page p {
+  font-size: 15px;
+  color: #cdd1e0;
+  max-width: 320px;
+  margin: 0;
+}
+
+.retry-btn {
+  background: transparent;
+  border: 1px solid rgba(201, 162, 75, 0.5);
+  color: #f3eee2;
+  font-family: "Work Sans", sans-serif;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.retry-btn:hover {
+  border-color: #c9a24b;
+  background: rgba(201, 162, 75, 0.08);
+}
+
+.page {
+  width: min(90%, 560px);
+  margin: 0 auto;
+  min-height: 100dvh;
+  padding: 48px 0 64px;
+  color: #f3eee2;
+  font-family: "Work Sans", sans-serif;
+}
+
+/* Header */
+.hero h1 {
+  font-family: "Amiri", serif;
+  font-weight: 700;
+  font-size: 44px;
+  margin: 0 0 20px;
+  letter-spacing: 0.3px;
+}
+
+.controls {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(201, 162, 75, 0.35);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: #8a93b3;
+}
+
+.field input {
+  background: #575b79ba;
+  border: none;
+  border-bottom: 1px solid rgba(243, 238, 226, 0.3);
+  color: #f3eee2;
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  padding: 4px 2px;
+  min-width: 180px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.field input:focus {
+  border-bottom-color: #c9a24b;
+}
+
+.prayers-btn {
+  background: #575b79ba;
+  border: none;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(243, 238, 226, 0.3);
+  color: #f3eee2;
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  padding: 4px 2px;
+  margin-top: 20px;
+  width: 110px;
+  height: 32px;
+  outline: none;
+  transition: transform 0.2s ease;
+}
+.prayers-btn:hover {
+  transform: translateY(-5px);
+}
+
+/* Timeline */
+.timeline {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.prayer-row {
+  display: flex;
+  gap: 20px;
+}
+
+.marker-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 16px;
+}
+
+.marker {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid #c9a24b;
+  background: transparent;
+  flex-shrink: 0;
+  margin-top: 6px;
+  transition: background 0.2s ease;
+}
+
+.thread {
+  flex: 1;
+  width: 1px;
+  background: rgba(201, 162, 75, 0.35);
+  margin: 4px 0;
+}
+
+.prayer-content {
+  padding-bottom: 28px;
+  flex: 1;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.prayer-content h2 {
+  font-family: "Amiri", serif;
+  font-weight: 400;
+  font-size: 22px;
+  margin: 0;
+  color: #f3eee2;
+}
+
+.prayer-content p {
+  margin: 0;
+  font-size: 16px;
+  color: #cdd1e0;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 34px;
+  }
+  .controls {
+    gap: 16px;
+  }
+}
+/* for future updates */
+/* Next prayer emphasis */
+/* .is-next .marker {
+  background: #c9a24b;
+  box-shadow: 0 0 0 4px rgba(201, 162, 75, 0.18);
+}
+
+.is-next .prayer-content h2,
+.is-next .prayer-content p {
+  color: #e8d9b5;
+}
+
+.is-next .prayer-content h2 {
+  font-weight: 700;
+} */
